@@ -38,23 +38,39 @@ A [ProofProvider](../interfaces/ProofProvider.md) routing each request to its er
 
 ## Throws
 
-V8PayloadUnsupportedError if a payload arrives on a retained arm no
-        provider was registered for.
+UnusableEraArmError if `currentEra`, or a `retainedEras` entry other
+        than `undefined`, is not an object with callable `check` and `prove`.
+        Raised at construction.
 
 ## Throws
 
-UntaggedPayloadError if `version` is missing or unrecognised.
+InvalidArgumentError if `provingProviders` is not an object,
+        `retainedEras` is not a plain object keyed only by retained eras, or
+        `costModel` is given but is not an object. Raised at construction.
 
 ## Throws
 
-PayloadNotATransactionError if a retained arm's `txBytes` is not a
-        serialized transaction.
+V8PayloadUnsupportedError raised by `proveTx` if a payload arrives on
+        a retained arm no provider was registered for.
 
 ## Throws
 
-Ledger8RuntimeMissingError if a retained arm is reached and that
-        era's runtime cannot be loaded. Both are defined in
-        `@midnight-ntwrk/midnight-js-protocol/errors`.
+UntaggedPayloadError raised by `proveTx` if `version` is missing or
+        unrecognised.
+
+## Throws
+
+PayloadNotATransactionError raised by `proveTx` if a retained arm's
+        `txBytes` is not a serialized transaction.
+
+## Throws
+
+Ledger8RuntimeMissingError raised by `proveTx` if a retained arm is
+        reached and that era's runtime cannot be loaded.
+
+`InvalidArgumentError`, `PayloadNotATransactionError` and
+`Ledger8RuntimeMissingError` are defined in
+`@midnight-ntwrk/midnight-js-protocol/errors`.
 
 ## Example
 

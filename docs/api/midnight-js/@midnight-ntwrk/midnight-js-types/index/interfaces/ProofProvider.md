@@ -18,7 +18,7 @@ The type of the circuit ID used by the provider.
 
 ### supportedEras
 
-> `readonly` **supportedEras**: readonly (`"v9"` \| `"v8"`)[]
+> `readonly` **supportedEras**: readonly (`"v8"` \| `"v9"`)[]
 
 The ledger eras THIS INSTANCE serves.
 
